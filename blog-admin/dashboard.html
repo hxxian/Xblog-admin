@@ -6,8 +6,9 @@
 		<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/H-ui.reset.css" />
-		
-		<link rel="stylesheet" type="text/css" href="css/dashboard.css"/>
+
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/dashboard.css" />
 		<title>仪表盘</title>
 	</head>
 	<body>
@@ -18,11 +19,11 @@
 					<div class="count-item">
 						<div class="tag">
 							<span>文章数</span>
-							<span class="glyphicon glyphicon-eye-open"></span>
+							<span class="glyphicon glyphicon-file"></span>
 						</div>
 						<p>45</p>
 					</div>
-					
+
 					<div class="count-item">
 						<div class="tag">
 							<span>访问数</span>
@@ -30,15 +31,15 @@
 						</div>
 						<p>45</p>
 					</div>
-					
+
 					<div class="count-item">
 						<div class="tag">
 							<span>评论数</span>
-							<span class="glyphicon glyphicon-eye-open"></span>
+							<span class="glyphicon glyphicon-comment"></span>
 						</div>
 						<p>45</p>
 					</div>
-					
+
 					<div class="count-item">
 						<div class="tag">
 							<span>博客成立</span>
@@ -47,22 +48,87 @@
 						<p>45天</p>
 					</div>
 				</div>
-				
+
 				<!-- 栏目 -->
 				<div class="column-box">
 					<div class="column-item">
-						<p class="title">最新评论</p>
+						<p class="title">最新评论&nbsp;<span class="glyphicon glyphicon-comment"></span></p>
+						<div class="flex-column content-center">
+							<div class="comment-item">
+								<span>博主，有个地方不太明白耶？</span>
+								<span>2020/05/05</span>
+							</div>
+							<div class="comment-item">
+								<span>博主，有个地方不太明白耶？</span>
+								<span>2020/05/05</span>
+							</div>
+						</div>
+
 					</div>
 					<div class="column-item">
-						<p class="title">发表说说</p>
+						<p class="title">发表说说&nbsp;<span class="glyphicon glyphicon-pencil"></span></p>
+						<div class="flex-column content-center">
+							<textarea rows="8" class="form-control" placeholder="写点什么吧..."></textarea>
+						</div>
+						<button class="btn btn-primary">发表</button>
 					</div>
-					<div class="column-item">
-						<p class="title">操作记录</p>
+					<div class="column-item record-box">
+						<p class="title">操作记录&nbsp;<span class="glyphicon glyphicon-info-sign"></span></p>
+						<div class="flex-column content-center">
+							<div class="record-item">
+								<div class="record-op">
+									<span>#登录</span>
+									<span>192.168.1.12</span>
+								</div>
+								<span>2020/05/05 10:10</span>
+							</div>
+							<div class="record-item">
+								<div class="record-op">
+									<span>#发表说说</span>
+									<span>192.168.1.12</span>
+								</div>
+								<span>2020/05/05 10:10</span>
+							</div>
+							<div class="record-item">
+								<div class="record-op">
+									<span>#发布文章</span>
+									<span>192.168.1.12</span>
+								</div>
+								<span>2020/05/05 10:10</span>
+							</div>
+							<div class="record-item">
+								<div class="record-op">
+									<span>#发布文章</span>
+									<span>192.168.1.12</span>
+								</div>
+								<span>2020/05/05 10:10</span>
+							</div>
+							<div class="record-item">
+								<div class="record-op">
+									<span>#发布文章</span>
+									<span>192.168.1.12</span>
+								</div>
+								<span>2020/05/05 10:10</span>
+							</div>
+							<div class="record-item">
+								<div class="record-op">
+									<span>#发布文章</span>
+									<span>192.168.1.12</span>
+								</div>
+								<span>2020/05/05 10:10</span>
+							</div>
+							<!-- 操作记录页码 -->
+							<div class="record-page">
+								<span class="glyphicon glyphicon-menu-left"></span>
+								<span>1</span>
+								<span class="glyphicon glyphicon-menu-right"></span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- CDN js依赖文件 -->
 		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -48,15 +48,18 @@ body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	align-items: flex-start;
 	justify-content: space-between;
 }
 
 .column-item {
 	width: 340px;
-	min-height: 200px;
+	/* min-height: 200px; */
 	background-color: #FFFFFF;
 	border-radius: 2px;
 	margin-bottom: 16px;
+	display: inline-block;
+	padding-bottom: 16px;
 }
 
 .column-item .title {
@@ -64,4 +67,68 @@ body {
 	font-weight: bold;
 	padding: 10px 0px 5px 10px;
 	border-bottom: 1px solid #eee;
+}
+
+.column-item textarea {
+	width: 80%;
+	margin-top: 20px;
+}
+
+.column-item button {
+	margin-top: 16px;
+	margin-left: 35px;
+}
+
+.comment-item {
+	width: 94%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 36px;
+	border-bottom: 1px dashed #eee;
+}
+
+.record-box {
+	max-height: 420px;
+}
+
+.record-item {
+	width: 94%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 54px;
+	border-bottom: 1px dashed #ccc;
+}
+
+.record-item .record-op {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.record-page {
+	width: 100%;
+	height: 30px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	align-content: center;
+	padding-right: 8px;
+	color: #bbbbbb;
+	font-size: 1.3rem;
+	margin-top: 10px;
+}
+
+
+.record-page span {
+	margin-right: 10px;
+}
+
+.record-page .glyphicon:hover {
+	color: #000000;
+	cursor: pointer;
 }
