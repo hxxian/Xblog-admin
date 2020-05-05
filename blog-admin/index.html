@@ -2,9 +2,68 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<!-- CDN css文件 -->
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/H-ui.reset.css" />
+
+		<!-- 样式 -->
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+		<title>浮晓悠羡-admin</title>
 	</head>
 	<body>
-		
+
+		<div class="container-fluid">
+			<!-- 顶部菜单 -->
+			<div class="header">
+				<span class="title">浮晓悠羡 Dashboard</span>
+				<div class="menu-box">
+					<div class="menu-item menu-item-active">
+						<span class="glyphicon glyphicon-dashboard"></span>
+						&nbsp;&nbsp;
+						<span>仪表盘</span>
+					</div>
+
+					<div class="menu-item">
+						<span class="glyphicon glyphicon-edit"></span>
+						&nbsp;&nbsp;
+						<span>文章</span>
+					</div>
+
+					<div class="menu-item">
+						<span class="glyphicon glyphicon-comment"></span>
+						&nbsp;&nbsp;
+						<span>评论</span>
+					</div>
+
+					<div class="menu-item">
+						<span class="glyphicon glyphicon-fire"></span>
+						&nbsp;&nbsp;
+						<span>头像管理</span>
+					</div>
+				</div>
+				<div class="user-avatar-box">
+					<span class="glyphicon glyphicon-cog"></span>
+					<div class="avatar">
+						<img src="img/avatar.jpg">
+					</div>
+				</div>
+			</div>
+			<!-- 当前选中页 -->
+			<div class="currpage">
+				<span>首页</span>
+				<span>/</span>
+				<span>仪表盘</span>
+			</div>
+			<div class="main-content">
+				<iframe src="dashboard.html"></iframe>
+			</div>
+		</div>
+
+		<!-- CDN js依赖文件 -->
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
 	</body>
 </html>

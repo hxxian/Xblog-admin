@@ -2,7 +2,7 @@ body {
 	background: linear-gradient(#00ffff, 50%, #0080ff);
 }
 
-.container {
+.container-fluid {
 	height: 1000px;
 	display: flex;
 	flex-direction: column;
@@ -13,7 +13,7 @@ body {
 /* 登录框 */
 
 .login-box {
-	width: 30%;
+	width: 380px;
 	height: 280px;
 	background-color: #FFFFFF;
 	border-radius: 8px;

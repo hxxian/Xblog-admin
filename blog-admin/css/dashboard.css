@@ -1,0 +1,67 @@
+body {
+	background-color: #eef0f3;
+}
+
+.main-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.total-count-box {
+	width: 1050px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.count-item {
+	background-color: #FFFFFF;
+	width: 250px;
+	height: 90px;
+	border-radius: 2px;
+}
+
+.count-item .tag {
+	padding: 20px 20px 0px 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color: #999999;
+}
+
+.count-item p {
+	font-size: 2.1rem;
+	display: inline-block;
+	margin-left: 20px;
+	font-weight: bold;
+	margin-top: 4px;
+}
+
+/* 栏目 */
+
+.column-box {
+	width: 1050px;
+	margin-top: 16px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.column-item {
+	width: 340px;
+	min-height: 200px;
+	background-color: #FFFFFF;
+	border-radius: 2px;
+	margin-bottom: 16px;
+}
+
+.column-item .title {
+	font-size: 1.4rem;
+	font-weight: bold;
+	padding: 10px 0px 5px 10px;
+	border-bottom: 1px solid #eee;
+}
