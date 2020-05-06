@@ -1,5 +1,5 @@
 body {
-	background-color: #eef0f3;
+	/* background-color: #eef0f3; */
 }
 
 .main-content {
@@ -21,6 +21,7 @@ body {
 	width: 250px;
 	height: 90px;
 	border-radius: 2px;
+	border: 1px dashed #CCCCCC;
 }
 
 .count-item .tag {
@@ -60,6 +61,7 @@ body {
 	margin-bottom: 16px;
 	display: inline-block;
 	padding-bottom: 16px;
+	border: 1px dashed #CCCCCC;
 }
 
 .column-item .title {

@@ -1,5 +1,5 @@
 body {
-	background-color: #eef0f3;
+	/* background-color: #eef0f3; */
 }
 
 .container-fluid {
@@ -90,6 +90,7 @@ body {
 	flex-direction: row;
 	align-items: center;
 	padding-left: 200px;
+	border-bottom: 1px dashed #AAAAAA;
 }
 
 .currpage span {
