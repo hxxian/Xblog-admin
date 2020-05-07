@@ -15,7 +15,7 @@ $(function() {
 				},
 				{
 					name: '评论',
-					url: 'dashboard.html',
+					url: 'comment-list.html',
 					icon: 'glyphicon glyphicon-comment'
 				},
 				{
