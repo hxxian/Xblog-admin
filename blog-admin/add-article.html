@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- CDN css文件 -->
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/H-ui.reset.css" />
+		<link href="https://cdn.staticfile.org/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="editor/styles/simditor.css" />
+		<link rel="stylesheet" type="text/css" href="css/add-article.css" />
+
+		<title>写文章</title>
+	</head>
+	<body>
+
+		<div class="container-fluid">
+			<div class="main-content">
+
+				<div class="editor-container">
+					<div class="title-input">
+						<span>文章分类: </span>
+						<input class="form-control"/>
+					</div>
+					<div class="title-input">
+						<span>文章标题: </span>
+						<input class="form-control"/>
+					</div>
+					<div class="editor-box">
+						<textarea id="editor" type="text/plain" name="content" autofocus></textarea>
+					</div>
+					<div class="btn-box">
+						<button class="btn btn-success">保存文章</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- CDN js依赖文件 -->
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
+
+		<!-- <script type="text/javascript" src="editor/scripts/jquery.min.js"></script> -->
+		<script type="text/javascript" src="editor/scripts/module.js"></script>
+		<script type="text/javascript" src="editor/scripts/hotkeys.js"></script>
+		<script type="text/javascript" src="editor/scripts/uploader.js"></script>
+		<script type="text/javascript" src="editor/scripts/simditor.js"></script>
+
+		<script src="js/add-acticle.js"></script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+.main-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.editor-container {
+	width: 1200px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.title-input {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 100px;
+	margin-top: 10px;
+}
+
+.title-input span {
+	color: #666666;
+	font-weight: bold;
+}
+
+.title-input input {
+	height: 30px;
+	width: 600px;
+	margin-left: 20px;
+}
+
+.editor-box {
+	margin-top: 30px;
+	width: 1000px;
+}
+
+.btn-box {
+	margin-top: 16px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-right: 200px;
+}
+
+.simditor .simditor-body {
+	/*开启滚动条*/
+	overflow-y: scroll !important;
+	/*设置高度*/
+	min-height: 500px !important;
+	max-height: 500px !important;
+}
