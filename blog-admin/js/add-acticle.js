@@ -1,5 +1,15 @@
 $(function() {
 
+	var vue = new Vue({
+		el: "#bloger",
+		methods: {
+			submitArticle: function() {
+				let htmlValue = editor.getValue();
+				console.log(htmlValue)
+			}
+		}
+	})
+
 	var editor = new Simditor({
 		textarea: $('#editor'),
 		toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', 'ol', 'ul',

@@ -16,7 +16,7 @@
 	</head>
 	<body>
 
-		<div class="container-fluid">
+		<div class="container-fluid" id="bloger">
 			<div class="main-content">
 
 				<div class="editor-container">
@@ -32,7 +32,7 @@
 						<textarea id="editor" type="text/plain" name="content" autofocus></textarea>
 					</div>
 					<div class="btn-box">
-						<button class="btn btn-success">保存文章</button>
+						<button @click="submitArticle()" class="btn btn-success">保存文章</button>
 					</div>
 				</div>
 			</div>
