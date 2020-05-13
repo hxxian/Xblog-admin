@@ -9,6 +9,11 @@ $(function() {
 					icon: 'glyphicon glyphicon-dashboard'
 				},
 				{
+					name: '文章分类',
+					url: 'article-type.html',
+					icon: 'glyphicon glyphicon-th-list'
+				},
+				{
 					name: '文章列表',
 					url: 'article-list.html',
 					icon: 'glyphicon glyphicon-file'
@@ -20,7 +25,7 @@ $(function() {
 				},
 				{
 					name: '头像管理',
-					url: 'dashboard.html',
+					url: 'avatar-manager.html',
 					icon: 'glyphicon glyphicon-fire'
 				},
 				{
