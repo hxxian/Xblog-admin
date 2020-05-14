@@ -22,11 +22,22 @@
 				<div class="editor-container">
 					<div class="title-input">
 						<span>文章分类: </span>
-						<input class="form-control"/>
+						<!-- Single button -->
+						<div class="btn-group type-menu">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+							 aria-expanded="false">
+								请选择 <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">设计模式</a></li>
+								<li><a href="#">Android</a></li>
+								<li><a href="#">java多线程</a></li>
+							</ul>
+						</div>
 					</div>
 					<div class="title-input">
 						<span>文章标题: </span>
-						<input class="form-control"/>
+						<input class="form-control" />
 					</div>
 					<div class="digest-box">
 						<div class="digest-tag">文章摘要:</div>
