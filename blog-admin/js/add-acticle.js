@@ -1,8 +1,16 @@
 $(function() {
-
+	$('.dropdown-toggle').dropdown();
 	var vue = new Vue({
 		el: "#bloger",
+		data: {
+			typeList: []
+		},
 		methods: {
+			loadData: function() {
+				loadArticleType().then(data => {
+					this.typeList = data
+				})
+			},
 			submitArticle: function() {
 				let htmlValue = editor.getValue();
 				console.log(htmlValue)
@@ -24,4 +32,6 @@ $(function() {
 			leaveConfirm: '正在上传文件'
 		}
 	});
+
+	vue.loadData();
 })

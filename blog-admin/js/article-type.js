@@ -8,17 +8,8 @@ $(function() {
 		methods: {
 			loadData: function() {
 				console.log("load data...")
-				let that = this;
-				$.ajax({
-					url: basePath + 'admin/article/type',
-					type: 'get',
-					dataType: 'json',
-					statusCode: {
-						200: function(data) {
-							console.log(data)
-							that.typeList = data;
-						}
-					}
+				loadArticleType().then((data) => {
+					this.typeList = data;
 				})
 			},
 			showAddType: function() {
