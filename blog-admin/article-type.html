@@ -16,7 +16,8 @@
 		<div class="container-fluid" id="bloger">
 			<div class="main-content">
 				<div class="add-type-btn">
-					<button @click="addType()" class="btn btn-success">新增分类</button>
+					<input v-model="typeName" class="form-control" />
+					<button @click="saveType()" class="btn btn-success">新增分类</button>
 				</div>
 				
 				<div class="table-box">
@@ -29,10 +30,10 @@
 							<th>操作</th>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>设计模式</td>
-								<td>2020/05/05</td>
+							<tr v-for="t in typeList">
+								<td>{{t.typeId}}</td>
+								<td>{{t.typeName}}</td>
+								<td>{{t.gmtCreate}}</td>
 								<td>
 									<button class="btn btn-danger">编辑</button>
 									<button class="btn btn-primary">删除</button>
@@ -71,6 +72,7 @@
 		<script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
 		<script src="layer/layer.js"></script>
 		
+		<script src="js/common.js"></script>
 		<script  src="js/article-type.js"></script>
 	</body>
 </html>
