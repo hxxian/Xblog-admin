@@ -1,8 +1,9 @@
 $(function() {
-	$('.dropdown-toggle').dropdown();
+	
 	var vue = new Vue({
 		el: "#bloger",
 		data: {
+			selectType: '请选择',
 			typeList: []
 		},
 		methods: {

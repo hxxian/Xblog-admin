@@ -24,14 +24,9 @@
 						<span>文章分类: </span>
 						<!-- Single button -->
 						<div class="btn-group type-menu">
-							<div class="dropdown">
-								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-									请选择 <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li v-for="t in typeList"><a href="#">{{t.typeName}}</a></li>
-								</ul>
-							</div>
+							<select>
+								<option v-for="t in typeList">{{t.typeName}}</option>
+							</select>
 						</div>
 
 					</div>

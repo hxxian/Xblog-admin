@@ -63,6 +63,14 @@
 	margin-left: 20px;
 }
 
+.type-menu select {
+	width: 150px;
+	height: 30px;
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+	padding-left: 5px;
+}
+
 .editor-box {
 	margin-top: 30px;
 	width: 1000px;

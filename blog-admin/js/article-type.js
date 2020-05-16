@@ -43,11 +43,7 @@ $(function() {
 		}
 	})
 
-	// vue.loadData();
+	vue.loadData();
 
 })
-// var addTypeHtml =
-// 	'<div class="add-type-box"> ' +
-// 	'	<input class="form-control" placeholder="分类名..." /> ' +
-// 	' 	<button @click="saveType()" class="btn btn-success">保存</button> ' +
-// 	'</div>';
+
