@@ -13,17 +13,19 @@ $(function() {
 				})
 			},
 			showAddType: function() {
+				this.showAddDialog = true;
+				let that = this;
 				layer.open({
 					type: 1,
 					title: "新增分类",
 					offset: '200px',
 					area: ['350px', '200px'],
-					content: addTypeHtml
+					content: $(".add-type-box-layer")
 				});
 			},
 			saveType: function() {
-				console.log(123)
 				let that = this;
+				layer.closeAll();
 				$.ajax({
 					url: basePath + 'admin/article/type',
 					type: 'post',
@@ -40,13 +42,12 @@ $(function() {
 			}
 		}
 	})
-	
-	vue.loadData();
+
+	// vue.loadData();
 
 })
-
-var addTypeHtml = '';
-// '<div class="add-type-box"> ' +
-// '	<input v-model="typeName" class="form-control" placeholder="分类名..." /> ' +
-// ' 	<button @click="saveType()" class="btn btn-success">保存</button> ' +
-// '</div>';
+// var addTypeHtml =
+// 	'<div class="add-type-box"> ' +
+// 	'	<input class="form-control" placeholder="分类名..." /> ' +
+// 	' 	<button @click="saveType()" class="btn btn-success">保存</button> ' +
+// 	'</div>';

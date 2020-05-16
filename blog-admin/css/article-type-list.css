@@ -46,6 +46,12 @@ body {
 	margin-right: 20px;
 }
 
+.add-type-box-layer {
+	display: none;
+	width: 300px;
+	height: 100px;
+}
+
 .add-type-box {
 	display: flex;
 	flex-direction: row;

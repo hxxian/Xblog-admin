@@ -16,10 +16,17 @@
 		<div class="container-fluid" id="bloger">
 			<div class="main-content">
 				<div class="add-type-btn">
-					<input v-model="typeName" class="form-control" />
-					<button @click="saveType()" class="btn btn-success">新增分类</button>
+					<!-- <input v-model="typeName" class="form-control" /> -->
+					<button @click="showAddType()" class="btn btn-success">新增分类</button>
 				</div>
-				
+				<!-- :class="{'hidden': showAddDialog}" -->
+				<div class="add-type-box-layer">
+					<div class="add-type-box">
+						<input class="form-control" placeholder="分类名..." />
+						<button @click="saveType()" class="btn btn-success">保存</button>
+					</div>
+				</div>
+
 				<div class="table-box">
 
 					<table class="table table-bordered table-condensed table-hover">
@@ -71,8 +78,9 @@
 		<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
 		<script src="layer/layer.js"></script>
-		
+
 		<script src="js/common.js"></script>
-		<script  src="js/article-type.js"></script>
+		<script src="js/article-type.js"></script>
 	</body>
+
 </html>
