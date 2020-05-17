@@ -20,6 +20,7 @@ $(function() {
 
 				if (articleId) {
 					loadArticleById(articleId).then((article) => {
+						that.selectedTypeId = article.typeId;
 						that.articleTitle = article.title;
 						that.digest = article.digest;
 						editor.setValue(article.content);
@@ -28,11 +29,9 @@ $(function() {
 			},
 			submitArticle: function() {
 				let htmlValue = editor.getValue();
-				console.log(this.selectedTypeId);
-				console.log(this.articleTitle);
-				console.log(this.digest);
-				console.log(htmlValue);
+				let aid = articleId ? articleId : 0;
 				let data = {
+					'articleId': aid,
 					'typeId': this.selectedTypeId,
 					'title': this.articleTitle,
 					'digest': this.digest,
@@ -43,6 +42,7 @@ $(function() {
 						layerSuccess()
 					} else if (code == 2) {
 						// 保存成功
+						layerSuccess()
 					}
 				});
 			}
