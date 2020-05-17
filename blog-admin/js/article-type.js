@@ -36,6 +36,9 @@ $(function() {
 					statusCode: {
 						201: function() {
 							console.log("=======")
+							layerSuccess(() => {
+								that.loadData();
+							});
 						}
 					}
 				})

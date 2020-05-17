@@ -1,20 +1,50 @@
 $(function() {
-	
+
+	var articleId = getQueryVariable('aid');
+	console.log(articleId);
+
 	var vue = new Vue({
 		el: "#bloger",
 		data: {
-			selectType: '请选择',
+			selectedTypeId: '',
+			articleTitle: '',
+			digest: '',
 			typeList: []
 		},
 		methods: {
 			loadData: function() {
+				let that = this;
 				loadArticleType().then(data => {
 					this.typeList = data
-				})
+				});
+
+				if (articleId) {
+					loadArticleById(articleId).then((article) => {
+						that.articleTitle = article.title;
+						that.digest = article.digest;
+						editor.setValue(article.content);
+					})
+				}
 			},
 			submitArticle: function() {
 				let htmlValue = editor.getValue();
-				console.log(htmlValue)
+				console.log(this.selectedTypeId);
+				console.log(this.articleTitle);
+				console.log(this.digest);
+				console.log(htmlValue);
+				let data = {
+					'typeId': this.selectedTypeId,
+					'title': this.articleTitle,
+					'digest': this.digest,
+					'content': htmlValue
+				}
+				addOrUpdateArticle(data).then((code) => {
+					if (code == 1) {
+						layerSuccess()
+					} else if (code == 2) {
+						// 保存成功
+					}
+				});
 			}
 		}
 	})
