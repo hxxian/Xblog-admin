@@ -13,6 +13,18 @@ $(function() {
 					that.articleList = data;
 				});
 			},
+			showChange: function(idx, state) {
+				let flag = 0;
+				if (state == 0) {
+					flag = 1;
+				} 
+				this.articleList[idx].showState = flag;
+				let params = {
+					'articleId': this.articleList[idx].articleId,
+					'showState': flag
+				}
+				updateArticleShowState(params);
+			},
 			editArticle: function(aid) {
 				var index = layer.open({
 					type: 2,

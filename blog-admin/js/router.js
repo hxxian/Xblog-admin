@@ -1,6 +1,22 @@
 var DEBUG = true;
 var basePath = DEBUG ? "http://127.0.0.1:8181/" : "";
 
+function updateArticleShowState(data) {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/article/show',
+			type: 'post',
+			dataType: 'json',
+			data: data,
+			statusCode: {
+				204: function() {
+					resolve()
+				}
+			}
+		})
+	}) 
+}
+
 function loadArticleType() {
 	return new Promise(function(resolve, reject) {
 		$.ajax({

@@ -28,7 +28,7 @@
 							<th>操作</th>
 						</thead>
 						<tbody>
-							<tr v-for="a in articleList">
+							<tr v-for="(a, idx) in articleList">
 								<td>{{a.articleId}}</td>
 								<td>{{a.title}}</td>
 								<td>{{a.readCount}}</td>
@@ -36,7 +36,7 @@
 								<td>{{a.publishTime}}</td>
 								<td>
 									<label class="toggle toggle-positive">
-										<input type="checkbox" :checked="a.showState">
+										<input type="checkbox" @change="showChange(idx, a.showState)" :checked="a.showState">
 										<div class="track">
 											<div class="handle"></div>
 										</div>
