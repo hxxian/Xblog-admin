@@ -1,6 +1,24 @@
 var DEBUG = true;
 var basePath = DEBUG ? "http://127.0.0.1:8181/" : "";
 
+function login(data) {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/user/login',
+			type: 'post',
+			data: data,
+			dataType: 'json',
+			statusCode: {
+				200: function(res) {
+					console.log(res)
+					console.log("======")
+					resolve(2)
+				}
+			}
+		})
+	})
+}
+
 function updateArticleShowState(data) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
@@ -14,7 +32,7 @@ function updateArticleShowState(data) {
 				}
 			}
 		})
-	}) 
+	})
 }
 
 function loadArticleType() {
@@ -22,6 +40,9 @@ function loadArticleType() {
 		$.ajax({
 			url: basePath + 'admin/article/type',
 			type: 'get',
+			headers: {
+				'Access-Token': "ajslgjlksjgkldjklfgjsdfg"
+			},
 			dataType: 'json',
 			statusCode: {
 				200: function(data) {
