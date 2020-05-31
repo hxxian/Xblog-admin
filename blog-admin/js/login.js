@@ -1,5 +1,5 @@
 $(function() {
-	var user = new Vue({
+	let bloger = new Vue({
 		el: "#bloger",
 		data: {
 			username: "",
@@ -11,19 +11,11 @@ $(function() {
 					'username': this.username,
 					'password': this.password
 				}
-				$.ajax({
-					url: basePath + 'admin/user/login',
-					type: 'post',
-					data: data,
-					dataType: 'json',
-					statusCode: {
-						200: function(res) {
-							console.log(res)
-							console.log("======")
-							
-						}
-					}
-				})
+				// login(data).then(res => {
+				// 	console.log(res)
+				// 	setCookie('userToken', res, 30);
+				// })
+				console.log(getCookie('userToken'))
 			}
 		}
 	})

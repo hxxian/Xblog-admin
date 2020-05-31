@@ -7,12 +7,13 @@ function login(data) {
 			url: basePath + 'admin/user/login',
 			type: 'post',
 			data: data,
-			dataType: 'json',
+			dataType: 'text',
 			statusCode: {
 				200: function(res) {
-					console.log(res)
-					console.log("======")
-					resolve(2)
+					resolve(res);
+				},
+				404: function() {
+					resolve(false);
 				}
 			}
 		})
