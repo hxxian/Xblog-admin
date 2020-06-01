@@ -11,11 +11,11 @@ $(function() {
 					'username': this.username,
 					'password': this.password
 				}
-				// login(data).then(res => {
-				// 	console.log(res)
-				// 	setCookie('userToken', res, 30);
-				// })
-				console.log(getCookie('userToken'))
+				login(data).then(res => {
+					console.log(res)
+					setCookie('userToken', res.token, 30);
+				})
+				// console.log(getCookie('userToken'))
 			}
 		}
 	})

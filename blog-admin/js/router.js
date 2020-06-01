@@ -1,13 +1,36 @@
 var DEBUG = true;
 var basePath = DEBUG ? "http://127.0.0.1:8181/" : "";
 
+function getSiteSnapshot() {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/site/snapshot',
+			type: 'get',
+			dataType: 'json',
+			statusCode: {
+				200: function(res) {
+					resolve(res);
+				},
+				404: function() {
+					resolve(false);
+				}
+			}
+		})
+	});
+}
+
+/**
+ * 管理员执行登录
+ * 
+ * @param {Object} data
+ */
 function login(data) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
 			url: basePath + 'admin/user/login',
 			type: 'post',
 			data: data,
-			dataType: 'text',
+			dataType: 'json',
 			statusCode: {
 				200: function(res) {
 					resolve(res);
@@ -20,6 +43,11 @@ function login(data) {
 	})
 }
 
+/**
+ * 更新文章的发布状态
+ * 
+ * @param {Object} data
+ */
 function updateArticleShowState(data) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
@@ -36,6 +64,9 @@ function updateArticleShowState(data) {
 	})
 }
 
+/**
+ * 加载文章类别数据列表
+ */
 function loadArticleType() {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
@@ -54,6 +85,11 @@ function loadArticleType() {
 	})
 }
 
+/**
+ * 根据文章ID查询文章信息
+ * 
+ * @param {Object} aid
+ */
 function loadArticleById(aid) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
@@ -69,6 +105,11 @@ function loadArticleById(aid) {
 	})
 }
 
+/**
+ * 新增或更新文章信息
+ * 
+ * @param {Object} data
+ */
 function addOrUpdateArticle(data) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
@@ -88,6 +129,11 @@ function addOrUpdateArticle(data) {
 	})
 }
 
+/**
+ * 分页查询文章快照列表
+ * 
+ * @param {Object} page
+ */
 function loadArticleSnapshots(page) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
