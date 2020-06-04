@@ -41,3 +41,33 @@ function getCookie(cname) {
 	}
 	return "";
 }
+
+/**
+ * 毫秒时间戳转
+ * 
+ * @param {Object} timestemp
+ */
+function formatDate(timestemp) {
+	let date = new Date(timestemp);
+	let y = date.getFullYear();
+	let M = date.getMonth() + 1; // 注意js里的月要加1 
+	let d = date.getDate();
+	let h = date.getHours();
+	let m = date.getMinutes();
+	let s = date.getSeconds();
+
+	let arr = new Array(y, M, d, h, m, s);
+	return arr;
+}
+
+/**
+ * 不足两位数字补零
+ * 
+ * @param {Object} obj
+ */
+function appendZero(obj) {
+	if (obj < 10) {
+		return "0" + "" + obj;
+	}
+	return obj;
+}

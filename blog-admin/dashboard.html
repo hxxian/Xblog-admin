@@ -54,13 +54,9 @@
 					<div class="column-item">
 						<p class="title">最新评论&nbsp;<span class="glyphicon glyphicon-comment"></span></p>
 						<div class="flex-column content-center">
-							<div class="comment-item">
-								<span>博主，有个地方不太明白耶？</span>
-								<span>2020/05/05</span>
-							</div>
-							<div class="comment-item">
-								<span>博主，有个地方不太明白耶？</span>
-								<span>2020/05/05</span>
+							<div v-for="c in latestComments" class="comment-item">
+								<span>{{c.content}}</span>
+								<span>{{c.timeFormat}}</span>
 							</div>
 						</div>
 
@@ -68,9 +64,9 @@
 					<div class="column-item">
 						<p class="title">发表说说&nbsp;<span class="glyphicon glyphicon-pencil"></span></p>
 						<div class="flex-column content-center">
-							<textarea rows="8" class="form-control" placeholder="写点什么吧..."></textarea>
+							<textarea v-model="diaryContent" rows="8" class="form-control" placeholder="写点什么吧..."></textarea>
 						</div>
-						<button class="btn btn-primary">发表</button>
+						<button @click="addDiary()" class="btn btn-primary">发表</button>
 					</div>
 					<div class="column-item record-box">
 						<p class="title">操作记录&nbsp;<span class="glyphicon glyphicon-info-sign"></span></p>
@@ -133,6 +129,7 @@
 		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://cdn.bootcss.com/vue/2.5.22/vue.js"></script>
+		<script src="layer/layer.js"></script>
 		
 		<script src="js/common.js"></script>
 		<script src="js/router.js"></script>

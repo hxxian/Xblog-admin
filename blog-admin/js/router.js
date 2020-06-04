@@ -1,6 +1,35 @@
 var DEBUG = true;
 var basePath = DEBUG ? "http://127.0.0.1:8181/" : "";
 
+/**
+ * 发表说说
+ * 
+ * @param {Object} content
+ */
+function saveDiary(content) {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/diary',
+			type: 'post',
+			dataType: 'json',
+			data: {
+				content: content
+			},
+			statusCode: {
+				201: function() {
+					resolve(true);
+				},
+				401: function() {
+					resolve(false);
+				}
+			}
+		})
+	});
+}
+
+/**
+ * 加载网站快照信息
+ */
 function getSiteSnapshot() {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
