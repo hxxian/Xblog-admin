@@ -71,54 +71,20 @@
 					<div class="column-item record-box">
 						<p class="title">操作记录&nbsp;<span class="glyphicon glyphicon-info-sign"></span></p>
 						<div class="flex-column content-center">
-							<div class="record-item">
+							<div class="record-item" v-for="o in opList">
 								<div class="record-op">
-									<span>#登录</span>
-									<span>192.168.1.12</span>
+									<span>#{{o.opDesc}}</span>
+									<span>{{o.ipAddr}}</span>
 								</div>
-								<span>2020/05/05 10:10</span>
+								<span>{{o.createTime}}</span>
 							</div>
-							<div class="record-item">
-								<div class="record-op">
-									<span>#发表说说</span>
-									<span>192.168.1.12</span>
-								</div>
-								<span>2020/05/05 10:10</span>
-							</div>
-							<div class="record-item">
-								<div class="record-op">
-									<span>#发布文章</span>
-									<span>192.168.1.12</span>
-								</div>
-								<span>2020/05/05 10:10</span>
-							</div>
-							<div class="record-item">
-								<div class="record-op">
-									<span>#发布文章</span>
-									<span>192.168.1.12</span>
-								</div>
-								<span>2020/05/05 10:10</span>
-							</div>
-							<div class="record-item">
-								<div class="record-op">
-									<span>#发布文章</span>
-									<span>192.168.1.12</span>
-								</div>
-								<span>2020/05/05 10:10</span>
-							</div>
-							<div class="record-item">
-								<div class="record-op">
-									<span>#发布文章</span>
-									<span>192.168.1.12</span>
-								</div>
-								<span>2020/05/05 10:10</span>
-							</div>
-							<!-- 操作记录页码 -->
-							<div class="record-page">
-								<span class="glyphicon glyphicon-menu-left"></span>
-								<span>1</span>
-								<span class="glyphicon glyphicon-menu-right"></span>
-							</div>
+						</div>
+						
+						<!-- 操作记录页码 -->
+						<div class="record-page">
+							<span class="glyphicon glyphicon-menu-left" @click="preOpRecordPage()"></span>
+							<span>{{currOpRecordPage}}</span>
+							<span class="glyphicon glyphicon-menu-right" @click="nextOpRecordPage()"></span>
 						</div>
 					</div>
 				</div>

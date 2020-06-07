@@ -24,6 +24,22 @@ function layerSuccess(callback) {
 	})
 }
 
+function layerFail() {
+	layer.msg('操作失败', {
+		time: 2000,
+		icon: 2
+	})
+}
+
+function deleteConfirm(callback) {
+	layer.confirm('确定删除？', {
+		btn: ['确定']
+	}, function() {
+		if (callback) {
+			callback();
+		}
+	})
+}
 
 function setCookie(cname, cvalue, expireMinutes) {
 	var d = new Date();
@@ -58,6 +74,21 @@ function formatDate(timestemp) {
 
 	let arr = new Array(y, M, d, h, m, s);
 	return arr;
+}
+
+/**
+ * 获取时间格式化字符串
+ * 
+ * @param {Object} timestemp
+ * @param {Object} needTime 是否需要时分秒部分
+ */
+function getformatDateStr(timestemp, needTime) {
+	let d = formatDate(timestemp);
+	let str = d[0] + "/" + appendZero(d[1]) + "/" + appendZero(d[2]);
+	if (needTime) {
+		str += " " + appendZero(d[3]) + ":" + appendZero(d[4]);
+	}
+	return str;
 }
 
 /**

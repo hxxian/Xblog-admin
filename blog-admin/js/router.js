@@ -1,6 +1,87 @@
 var DEBUG = true;
 var basePath = DEBUG ? "http://127.0.0.1:8181/" : "";
 
+function listOpRecord(page) {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/site/snapshot/oprecord/' + page,
+			type: 'get',
+			dataType: 'json',
+			statusCode: {
+				200: function(res) {
+					resolve(res)
+				}
+			}
+		})
+	})
+}
+
+/**
+ * 新增文章类别
+ * 
+ * @param {Object} data
+ */
+function saveArticleType(data) {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/article/type',
+			type: 'post',
+			dataType: 'json',
+			data: data,
+			statusCode: {
+				201: function() {
+					resolve(true)
+				}
+			}
+		})
+	})
+}
+
+/**
+ * 删除文章类别
+ * 
+ * @param {Object} data
+ */
+function deleteArticleType(data) {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/article/type/delete',
+			type: 'post',
+			dataType: 'json',
+			data: data,
+			statusCode: {
+				204: function() {
+					resolve(true)
+				},
+				403: function() {
+					resolve(false)
+				}
+			}
+		})
+	})
+}
+
+/**
+ * 更新文章类别名
+ * 
+ * @param {Object} data
+ */
+function updateArticleTypeName(data) {
+	return new Promise(function(resolve, reject) {
+		$.ajax({
+			url: basePath + 'admin/article/type/update',
+			type: 'post',
+			dataType: 'json',
+			data: data,
+			statusCode: {
+				204: function() {
+					resolve(true)
+				}
+			}
+		})
+	})
+}
+
 /**
  * 发表说说
  * 

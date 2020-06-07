@@ -92,7 +92,8 @@ body {
 }
 
 .record-box {
-	max-height: 420px;
+	height: 520px;
+	position: relative;
 }
 
 .record-item {
@@ -123,6 +124,9 @@ body {
 	color: #bbbbbb;
 	font-size: 1.3rem;
 	margin-top: 10px;
+	position: absolute;
+	bottom: 10px;
+	right: 0px;
 }
 
 

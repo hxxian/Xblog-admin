@@ -46,7 +46,7 @@ body {
 	margin-right: 20px;
 }
 
-.add-type-box-layer {
+.add-type-box-layer, .update-type-box-layer {
 	display: none;
 	width: 300px;
 	height: 100px;

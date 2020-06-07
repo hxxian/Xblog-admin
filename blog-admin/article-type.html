@@ -25,6 +25,13 @@
 						<button @click="saveType()" class="btn btn-success">保存</button>
 					</div>
 				</div>
+				
+				<div class="update-type-box-layer">
+					<div class="add-type-box">
+						<input  v-model="currTypeName" class="form-control" />
+						<button @click="updateType()" class="btn btn-success">保存</button>
+					</div>
+				</div>
 
 				<div class="table-box">
 
@@ -39,10 +46,10 @@
 							<tr v-for="t in typeList">
 								<td>{{t.typeId}}</td>
 								<td>{{t.typeName}}</td>
-								<td>{{t.gmtCreate}}</td>
+								<td>{{t.createTime}}</td>
 								<td>
-									<button class="btn btn-danger">编辑</button>
-									<button class="btn btn-primary">删除</button>
+									<button class="btn btn-danger" @click="showUpdateType(t.typeId, t.typeName)">编辑</button>
+									<button class="btn btn-primary" @click="deleteType(t.typeId)">删除</button>
 								</td>
 							</tr>
 						</tbody>
