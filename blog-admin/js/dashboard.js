@@ -62,7 +62,10 @@ $(function() {
 				})
 			},
 			addDiary: function() {
-				saveDiary(this.diaryContent).then(res => {
+				let d = {
+					content: this.diaryContent
+				}
+				saveDiary(d).then(res => {
 					if (res) {
 						layer.msg('操作成功', {
 							time: 2000,

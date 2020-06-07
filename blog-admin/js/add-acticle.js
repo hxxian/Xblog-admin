@@ -37,14 +37,26 @@ $(function() {
 					'digest': this.digest,
 					'content': htmlValue
 				}
-				addOrUpdateArticle(data).then((code) => {
-					if (code == 1) {
-						layerSuccess()
-					} else if (code == 2) {
-						// 保存成功
-						layerSuccess()
-					}
-				});
+				
+				if (aid <= 0) {
+					addArticle(data).then((code) => {
+						if (code == 1) {
+							layerSuccess()
+						} else if (code == 2) {
+							// 保存成功
+							layerSuccess()
+						}
+					});
+				} else {
+					updateArticle(data).then((code) => {
+						if (code == 1) {
+							layerSuccess()
+						} else if (code == 2) {
+							// 保存成功
+							layerSuccess()
+						}
+					});
+				}
 			}
 		}
 	})

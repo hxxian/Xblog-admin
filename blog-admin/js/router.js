@@ -1,19 +1,13 @@
 var DEBUG = true;
 var basePath = DEBUG ? "http://127.0.0.1:8181/" : "";
 
+/**
+ * 分页查询操作记录数据
+ * 
+ * @param {Object} page
+ */
 function listOpRecord(page) {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/site/snapshot/oprecord/' + page,
-			type: 'get',
-			dataType: 'json',
-			statusCode: {
-				200: function(res) {
-					resolve(res)
-				}
-			}
-		})
-	})
+	return getJson('admin/site/snapshot/oprecord/' + page)
 }
 
 /**
@@ -22,19 +16,7 @@ function listOpRecord(page) {
  * @param {Object} data
  */
 function saveArticleType(data) {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/article/type',
-			type: 'post',
-			dataType: 'json',
-			data: data,
-			statusCode: {
-				201: function() {
-					resolve(true)
-				}
-			}
-		})
-	})
+	return postRequest('admin/article/type', data);
 }
 
 /**
@@ -43,22 +25,7 @@ function saveArticleType(data) {
  * @param {Object} data
  */
 function deleteArticleType(data) {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/article/type/delete',
-			type: 'post',
-			dataType: 'json',
-			data: data,
-			statusCode: {
-				204: function() {
-					resolve(true)
-				},
-				403: function() {
-					resolve(false)
-				}
-			}
-		})
-	})
+	return putRequest('admin/article/type/delete', data);
 }
 
 /**
@@ -67,19 +34,7 @@ function deleteArticleType(data) {
  * @param {Object} data
  */
 function updateArticleTypeName(data) {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/article/type/update',
-			type: 'post',
-			dataType: 'json',
-			data: data,
-			statusCode: {
-				204: function() {
-					resolve(true)
-				}
-			}
-		})
-	})
+	return putRequest('admin/article/type/update', data);
 }
 
 /**
@@ -87,46 +42,67 @@ function updateArticleTypeName(data) {
  * 
  * @param {Object} content
  */
-function saveDiary(content) {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/diary',
-			type: 'post',
-			dataType: 'json',
-			data: {
-				content: content
-			},
-			statusCode: {
-				201: function() {
-					resolve(true);
-				},
-				401: function() {
-					resolve(false);
-				}
-			}
-		})
-	});
+function saveDiary(data) {
+	return postRequest('admin/diary', data)
 }
 
 /**
  * 加载网站快照信息
  */
 function getSiteSnapshot() {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/site/snapshot',
-			type: 'get',
-			dataType: 'json',
-			statusCode: {
-				200: function(res) {
-					resolve(res);
-				},
-				404: function() {
-					resolve(false);
-				}
-			}
-		})
-	});
+	return getJson('admin/site/snapshot');
+}
+
+/**
+ * 更新文章的发布状态
+ * 
+ * @param {Object} data
+ */
+function updateArticleShowState(data) {
+	return putRequest('admin/article/show', data);
+}
+
+/**
+ * 加载文章类别数据列表
+ */
+function loadArticleType() {
+	return getJson('admin/article/type');
+}
+
+/**
+ * 根据文章ID查询文章信息
+ * 
+ * @param {Object} aid
+ */
+function loadArticleById(aid) {
+	return getJson('admin/article/info/' + aid);
+}
+
+/**
+ * 新增文章
+ * 
+ * @param {Object} data
+ */
+function addArticle(data) {
+	return postRequest('admin/article', data);
+}
+
+/**
+ * 更新文章
+ * 
+ * @param {Object} data
+ */
+function updateArticle(data) {
+	return putRequest('admin/article/update', data)
+}
+
+/**
+ * 分页查询文章快照列表
+ * 
+ * @param {Object} page
+ */
+function loadArticleSnapshots(page) {
+	return getJson('admin/article/page/' + page);
 }
 
 /**
@@ -153,86 +129,60 @@ function login(data) {
 	})
 }
 
-/**
- * 更新文章的发布状态
- * 
- * @param {Object} data
- */
-function updateArticleShowState(data) {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/article/show',
-			type: 'post',
-			dataType: 'json',
-			data: data,
-			statusCode: {
-				204: function() {
-					resolve()
-				}
-			}
-		})
-	})
-}
+/* *********** */
 
-/**
- * 加载文章类别数据列表
- */
-function loadArticleType() {
+function getJson(url) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
-			url: basePath + 'admin/article/type',
+			url: basePath + url,
 			type: 'get',
+			dataType: 'json',
 			headers: {
-				'Access-Token': "ajslgjlksjgkldjklfgjsdfg"
+				'Access-Token': getCookie('userToken')
 			},
-			dataType: 'json',
 			statusCode: {
-				200: function(data) {
-					resolve(data)
+				200: function(res) {
+					resolve(res);
+				},
+				404: function() {
+					resolve(false);
+				},
+				403: function() {
+					window.location = "login.html"
 				}
 			}
 		})
-	})
+	});
 }
 
 /**
- * 根据文章ID查询文章信息
+ * post请求，用于新增数据
  * 
- * @param {Object} aid
- */
-function loadArticleById(aid) {
-	return new Promise(function(resolve, reject) {
-		$.ajax({
-			url: basePath + 'admin/article/info/' + aid,
-			type: 'get',
-			dataType: 'json',
-			statusCode: {
-				200: function(data) {
-					resolve(data)
-				}
-			}
-		})
-	})
-}
-
-/**
- * 新增或更新文章信息
- * 
+ * @param {Object} url
  * @param {Object} data
  */
-function addOrUpdateArticle(data) {
+function postRequest(url, data) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
-			url: basePath + 'admin/article',
+			url: basePath + url,
 			type: 'post',
 			dataType: 'json',
 			data: data,
+			headers: {
+				'Access-Token': getCookie('userToken')
+			},
 			statusCode: {
 				201: function() {
-					resolve(1)
+					resolve(true)
 				},
-				204: function() {
-					resolve(2)
+				401: function() {
+					resolve(false);
+				},
+				403: function() {
+					window.location.href = "login.html"
+				},
+				500: function() {
+					resolve(false)
 				}
 			}
 		})
@@ -240,19 +190,33 @@ function addOrUpdateArticle(data) {
 }
 
 /**
- * 分页查询文章快照列表
+ * put请求，用于更新数据
  * 
- * @param {Object} page
+ * @param {Object} url
+ * @param {Object} data
  */
-function loadArticleSnapshots(page) {
+function putRequest(url, data) {
 	return new Promise(function(resolve, reject) {
 		$.ajax({
-			url: basePath + 'admin/article/page/' + page,
-			type: 'get',
+			url: basePath + url,
+			type: 'post',
 			dataType: 'json',
+			data: data,
+			headers: {
+				'Access-Token': getCookie('userToken')
+			},
 			statusCode: {
-				200: function(data) {
-					resolve(data)
+				204: function() {
+					resolve(true)
+				},
+				403: function() {
+					window.location.href = "login.html"
+				},
+				401: function() {
+					resolve(false);
+				},
+				500: function() {
+					resolve(false)
 				}
 			}
 		})
