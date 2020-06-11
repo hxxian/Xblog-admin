@@ -106,6 +106,13 @@ function loadArticleSnapshots(page) {
 }
 
 /**
+ * 注销登录
+ */
+function logout() {
+	putRequest('admin/user/logout', {})
+}
+
+/**
  * 管理员执行登录
  * 
  * @param {Object} data

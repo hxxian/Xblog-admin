@@ -43,6 +43,11 @@ $(function() {
 				this.currPageIdx = idx;
 				this.currPageUrl = this.pages[idx].url;
 				this.currPageName = this.pages[idx].name;
+			},
+			doLogout: function() {
+				logout().then(() => {
+					window.location = "login.html"
+				})
 			}
 		}
 	})
