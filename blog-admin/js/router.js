@@ -1,5 +1,5 @@
-var DEBUG = true;
-var basePath = DEBUG ? "http://127.0.0.1:8181/" : "";
+var DEBUG = false;
+var basePath = DEBUG ? "http://127.0.0.1:8181/" : "https://www.hxxian.cn:448/xbloger/";
 
 /**
  * 分页查询操作记录数据
@@ -109,7 +109,7 @@ function loadArticleSnapshots(page) {
  * 注销登录
  */
 function logout() {
-	putRequest('admin/user/logout', {})
+	return putRequest('admin/user/logout', {})
 }
 
 /**
