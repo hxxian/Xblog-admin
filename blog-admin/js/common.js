@@ -43,7 +43,7 @@ function deleteConfirm(callback) {
 
 function setCookie(cname, cvalue, expireMinutes) {
 	var d = new Date();
-	d.setTime(d.getTime() + (expireMinutes * 60 * 1000));
+	d.setTime(d.getTime() + (expireMinutes * 60 * 1000 * 60));
 	var expires = "expires=" + d.toGMTString();
 	document.cookie = cname + "=" + cvalue + "; " + expires;
 }
