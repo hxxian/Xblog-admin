@@ -10,7 +10,7 @@
 
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="editor/styles/simditor.css" />
-		<link rel="stylesheet" type="text/css" href="css/add-article.css" />
+		<link rel="stylesheet" type="text/css" href="css/add-article.css?v=20200629080400" />
 
 		<title>写文章</title>
 	</head>
@@ -39,7 +39,7 @@
 						<textarea rows="5" v-model="digest" class="form-control"></textarea>
 					</div>
 					<div class="editor-box">
-						<textarea id="editor" type="text/plain" name="content" autofocus></textarea>
+						<textarea class="form-control" v-model="content" type="text/plain" name="content" autofocus></textarea>
 					</div>
 					<div class="btn-box">
 						<button @click="submitArticle()" class="btn btn-success">保存文章</button>
@@ -64,6 +64,6 @@
 
 		<script src="js/common.js"></script>
 		<script src="js/router.js"></script>
-		<script src="js/add-acticle.js"></script>
+		<script src="js/add-acticle.js?v=20200629080400"></script>
 	</body>
 </html>

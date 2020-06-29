@@ -9,6 +9,7 @@ $(function() {
 			selectedTypeId: '',
 			articleTitle: '',
 			digest: '',
+			content: '',
 			typeList: []
 		},
 		methods: {
@@ -23,19 +24,20 @@ $(function() {
 						that.selectedTypeId = article.typeId;
 						that.articleTitle = article.title;
 						that.digest = article.digest;
-						editor.setValue(article.content);
+						// editor.setValue(article.content);
+						that.content = article.content;
 					})
 				}
 			},
 			submitArticle: function() {
-				let htmlValue = editor.getValue();
+				// let htmlValue = editor.getValue();
 				let aid = articleId ? articleId : 0;
 				let data = {
 					'articleId': aid,
 					'typeId': this.selectedTypeId,
 					'title': this.articleTitle,
 					'digest': this.digest,
-					'content': htmlValue
+					'content': this.content
 				}
 				
 				if (aid <= 0) {
@@ -61,20 +63,20 @@ $(function() {
 		}
 	})
 
-	var editor = new Simditor({
-		textarea: $('#editor'),
-		toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', 'ol', 'ul',
-			'blockquote', 'code', 'table', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment'
-		],
-		pasteImage: true, //允许粘贴图片
-		upload: {
-			url: basePath + 'file/upload', //文件上传的接口地址
-			params: '', //键值对,指定文件上传接口的额外参数,上传的时候随文件一起提交
-			fileKey: 'file', //服务器端获取文件数据的参数名
-			connectionCount: 3,
-			leaveConfirm: '正在上传文件'
-		}
-	});
+	// var editor = new Simditor({
+	// 	textarea: $('#editor'),
+	// 	toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', 'ol', 'ul',
+	// 		'blockquote', 'code', 'table', 'link', 'image', 'hr', 'indent', 'outdent', 'alignment'
+	// 	],
+	// 	pasteImage: true, //允许粘贴图片
+	// 	upload: {
+	// 		url: basePath + 'file/upload', //文件上传的接口地址
+	// 		params: '', //键值对,指定文件上传接口的额外参数,上传的时候随文件一起提交
+	// 		fileKey: 'file', //服务器端获取文件数据的参数名
+	// 		connectionCount: 3,
+	// 		leaveConfirm: '正在上传文件'
+	// 	}
+	// });
 
 	vue.loadData();
 })

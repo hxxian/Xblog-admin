@@ -76,6 +76,11 @@
 	width: 1000px;
 }
 
+.editor-box textarea {
+	width: 1000px;
+	height: 400px;
+}
+
 .btn-box {
 	margin-top: 16px;
 	width: 100%;
